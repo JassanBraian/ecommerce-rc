@@ -1,0 +1,43 @@
+.category-page-title{
+  padding-top: 2rem;
+  font-family: 'Bebas Neue';
+  font-size: 5rem;
+}
+
+.category-page-links-container{
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.category-page-links-container h3{
+  font-family: 'Bebas Neue';
+}
+
+.category-page-link{
+  cursor: pointer;
+}
+
+.category-page-current-category{
+  text-align: center;
+  font-family: 'Bebas Neue';
+  padding-top: 2rem;
+  font-size: 4rem;
+  text-decoration: underline;
+}
+
+.category-page-current-numb-of-products{
+  text-align: center;
+}
+
+.category-page-categories-container{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem 5rem;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 1rem;
+}

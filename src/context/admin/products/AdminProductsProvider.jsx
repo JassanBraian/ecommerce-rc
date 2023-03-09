@@ -10,7 +10,8 @@ const AdminProductsProvider = ({ children }) => {
 
   const initialValues = {
     products: [],
-    currentProduct: {}
+    currentProduct: {},
+    categoryFiltered: ''
   };
 
   const [values, setValues] = useState(initialValues);
@@ -88,6 +89,10 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
+  const filterByCategory = (category) =>{
+    return setValues({ ...values, categoryFiltered: category })
+  }
+
   return (
     <AdminProductsContext.Provider value={{
       ...values,
@@ -97,7 +102,8 @@ const AdminProductsProvider = ({ children }) => {
       updateProduct,
       deleteProduct,
       getProductsByProdSearched,
-      highlightProduct
+      highlightProduct,
+      filterByCategory
     }}>
       {children}
     </AdminProductsContext.Provider>

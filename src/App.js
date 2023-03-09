@@ -9,6 +9,7 @@ import Layout from './components/common/Layout';
 import AdminUsers from './pages/AdminUsers';
 import ProductPage from './pages/ProductPage';
 import SaleNewPage from './pages/SaleNewPage';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path='/admin-users' element={<AdminUsers />} />
               <Route path='/product' element={<ProductPage />} />
               <Route path='/sale-new' element={<SaleNewPage />} />
+              <Route path='/category-page' element={<CategoryPage />} />
             </Routes>
           </Layout>
         </Router>
