@@ -13,6 +13,7 @@ const CategoryPage = () => {
 
   const allProducts = products.map((product, index) => (
     <ProductsCard
+      photo={product.photo}
       title={product.name}
       price={product.price}
       offerPrice={product.offerPrice}
@@ -29,6 +30,47 @@ const CategoryPage = () => {
   );
 
   const categoryFilter = (category) => {
+    /* let filteredProducts = []; */
+    console.log('1', category);
+    if(category !== '' ){
+      setListProducts(products.filter((product) => product.category === category)
+      .map((product, index) => (
+        <ProductsCard
+          title={product.name}
+          price={product.price}
+          offerPrice={product.offerPrice}
+          key={index}
+        />
+      )))
+    } else {
+      setListProducts(
+        products
+          .map((product, index) => (
+            <ProductsCard
+              title={product.name}
+              price={product.price}
+              offerPrice={product.offerPrice}
+              key={index}
+            />
+          ))
+      );
+    }
+    /* category !== '' && filteredProducts = products.filter((product) => product.category === category) */
+    /* setListProducts(
+      products
+        .filter((product) => product.category === category)
+        .map((product, index) => (
+          <ProductsCard
+            title={product.name}
+            price={product.price}
+            offerPrice={product.offerPrice}
+            key={index}
+          />
+        ))
+    ); */
+  };
+
+/*   const categoryFilter = (category) => {
     setListProducts(
       products
         .filter((product) => product.category === category)
@@ -41,7 +83,7 @@ const CategoryPage = () => {
           />
         ))
     );
-  };
+  }; */
 
   useEffect(() => {
     categoryFilter(categoryFiltered);

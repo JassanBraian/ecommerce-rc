@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //context
 import AdminProductsContext from './AdminProductsContext';
 //hooks
 import { useState } from 'react';
 //axios
 import clientAxios from '../../../config/axios';
+import ImageContext from '../../image/ImageContext';
 
 const AdminProductsProvider = ({ children }) => {
 
@@ -16,10 +17,22 @@ const AdminProductsProvider = ({ children }) => {
 
   const [values, setValues] = useState(initialValues);
 
+  const {getProductImages, currentProductImages} = useContext(ImageContext);
+
   const getProducts = async () => {
     try {
       const res = await clientAxios.get('/product');
-      res && setValues({ ...values, products: res.data.products });
+      console.log(res)
+      if (res.status === 201 && res.data.products && res.data.products.length > 0) {
+        // Carga de imagen por cada producto
+        res.data.products.map(prod => {
+            /* getProductImages(prod._id); */
+            getProductImages("63fbad69fa4480a5d80c4c8c")
+            prod.photo = currentProductImages[0];
+            console.log(currentProductImages)
+        });
+        setValues({ ...values, products: res.data.products });
+    }
     } catch (error) {
       throw error;
     }
